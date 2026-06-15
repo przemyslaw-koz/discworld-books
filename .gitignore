@@ -46,6 +46,9 @@ local.db
 # playwright mcp runtime logs
 .playwright-mcp/
 
+# claude code local settings (personal, not project-level)
+.claude/settings.json
+
 # large binary asset pack — ignore all, keep only files used in the app
 public/assets/ui-pack/*
 !public/assets/ui-pack/Individual files/
