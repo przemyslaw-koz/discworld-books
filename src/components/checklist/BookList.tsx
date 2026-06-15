@@ -1,4 +1,5 @@
 import type { Book } from '@/db/schema'
+import { groupBooksByCycle } from '@/lib/checklist'
 import BookRow from './BookRow'
 
 interface BookListProps {
@@ -16,16 +17,7 @@ export default function BookList({
   collapsedSeries,
   onToggleSeries,
 }: BookListProps) {
-  const seriesOrder: string[] = []
-  const grouped: Record<string, Book[]> = {}
-
-  for (const book of books) {
-    if (!grouped[book.cycle]) {
-      seriesOrder.push(book.cycle)
-      grouped[book.cycle] = []
-    }
-    grouped[book.cycle].push(book)
-  }
+  const { seriesOrder, grouped } = groupBooksByCycle(books)
 
   return (
     <div className="mt-2 mb-4">

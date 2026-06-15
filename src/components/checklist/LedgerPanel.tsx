@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import type { Book } from '@/db/schema'
+import { toggleSetItem } from '@/lib/checklist'
 import LedgerHeader from './LedgerHeader'
 import BookList from './BookList'
 import ProgressBlock from './ProgressBlock'
@@ -18,12 +19,7 @@ export default function LedgerPanel({ books }: LedgerPanelProps) {
   const [collapsedSeries, setCollapsedSeries] = useState<Set<string>>(new Set())
 
   function toggleSeries(series: string) {
-    setCollapsedSeries((prev) => {
-      const next = new Set(prev)
-      if (next.has(series)) next.delete(series)
-      else next.add(series)
-      return next
-    })
+    setCollapsedSeries((prev) => toggleSetItem(prev, series))
   }
 
   useEffect(() => {
@@ -40,12 +36,7 @@ export default function LedgerPanel({ books }: LedgerPanelProps) {
   }, [checkedIds, hydrated])
 
   function toggle(id: string) {
-    setCheckedIds((prev) => {
-      const next = new Set(prev)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
-      return next
-    })
+    setCheckedIds((prev) => toggleSetItem(prev, id))
   }
 
   return (
