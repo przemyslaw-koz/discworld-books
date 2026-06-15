@@ -39,3 +39,27 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local database
+local.db
+
+# playwright mcp runtime logs
+.playwright-mcp/
+
+# large binary asset pack — ignore all, keep only files used in the app
+public/assets/ui-pack/*
+!public/assets/ui-pack/Individual files/
+public/assets/ui-pack/Individual files/*
+!public/assets/ui-pack/Individual files/3x/
+public/assets/ui-pack/Individual files/3x/*
+!public/assets/ui-pack/Individual files/3x/Checkboxes/
+!public/assets/ui-pack/Individual files/3x/Buttons/
+public/assets/ui-pack/Individual files/3x/Checkboxes/*
+!public/assets/ui-pack/Individual files/3x/Checkboxes/Checkbox_01A_On.png
+!public/assets/ui-pack/Individual files/3x/Checkboxes/Checkbox_01A_Off.png
+public/assets/ui-pack/Individual files/3x/Buttons/*
+!public/assets/ui-pack/Individual files/3x/Buttons/Button_05A_Normal.png
+!public/assets/ui-pack/Individual files/3x/Buttons/Button_06A_Normal.png
+
+# test screenshots
+test-*.png
